@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akitsulab.company_simulation_api.repository.mybatis.EmployeeMapper">
+    <!-- Employeeクラスとemployeeテーブルをマッピングする-->
+    <resultMap id="Employee" type="com.akitsulab.company_simulation_api.domain.Employee">
+        <id property="employeeId" column="id"/>
+        <result property="employeeName" column="name"/>
+        <result property="age" column="age"/>
+        <result property="educationalBackground" column="educational_background"/>
+        <result property="annualIncome" column="annual_income"/>
+        <result property="companyId" column="company_id"/>
+        <result property="position" column="position"/>
+        <result property="jobTitle" column="job_title"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="find" resultMap="Employee">
+        SELECT id,
+               name,
+               age,
+               educational_background,
+               annual_income,
+               company_id,
+               position,
+               job_title,
+               created_at,
+               updated_at
+        FROM employee
+        ORDER BY id ASC
+    </select>
+
+</mapper>
