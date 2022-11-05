@@ -31,5 +31,19 @@
         FROM employee
         ORDER BY id ASC
     </select>
+    <select id="get" resultMap="Employee">
+        SELECT id,
+               name,
+               age,
+               educational_background,
+               annual_income,
+               company_id,
+               position,
+               job_title,
+               created_at,
+               updated_at
+        FROM employee
+        WHERE id = #{employeeId}
+    </select>
 
 </mapper>

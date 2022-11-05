@@ -26,8 +26,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee findOne(long id) {
-        return null;
+    public Employee findOne(int employeeId) {
+        logger.info("id={} を取得",employeeId);
+        Employee employee = this.sqlSession.getMapper(EmployeeMapper.class).get(employeeId);
+        if(employee==null){
+            logger.info("employee not found. id={}",employeeId);
+        }
+        return employee;
     }
 
     @Override

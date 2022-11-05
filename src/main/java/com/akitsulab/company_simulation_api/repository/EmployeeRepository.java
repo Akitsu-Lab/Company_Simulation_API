@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface EmployeeRepository {
     List<Employee> findList();
-    Employee findOne(long id);
+    Employee findOne(int employeeId);
     Employee lock(long id);
 }
